@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en"
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=ed;ge"
+  <meta name="viewport" content="width=device-wiidth, initial-     scale=1.0">
+  <title>Personal Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/d636572d72.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="header">
+    <div class="container">
+      <nav>
+        <!-- <img src="images/1123.png" class = "logo" width="100px" length="120px"> -->
+        <ul id="sidemanu">
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#Portfolio">Portfolio</a></li>
+          <li><a href="#Contact">Contact</a></li>
+          <i class="fas fa-times" onclick="closemanu()"></i>
+        </ul>
+        <i class="fas fa-bars" onclick="openmanu()"></i>
+      </nav>
+      <div class = "header-text">
+        <h1><span>Muhammad Junaid</span><br></h1>
+        <p> Computer Scientist </p>
+      </div>
+    </div>
+  </div>
+  <!-- ----------------------About----------------- -->
+  <div id="about">
+    <div class="container">
+      <div class="row">
+        <div class="about-col-1">
+          <img src="images/Decorate.jpg">
+        </div>
+        <div class="about-col-2">
+          <h1 class="subtitle">About Me</h1>
+          <p>As a final-year Computer Science student, I bring a robust proficiency in programming languages including
+            <span> Java, C, C++</span> and <span>Python</span>, coupled with adept web development skills encompassing <span> HTML, XML </span> and <span> CSS </span>.
+            My collaborative approach is evidenced through active participation in team projects.I have demonstrated
+            hard work and professionalism in side jobs while utilizing tools such as <span> SAP BW, Salesforce, CyberSource </span>,
+            and <span> Commerce Cloud </span>. Additionally, my commitment to precision is underscored by my experience with
+            <span> PKMS </span> and providing <span> Level 2 technical support </span> for <span> wearables </span> &<span> complex <a href="https://us.ecoflow.com/"> ECOFLOW </a> power generators and<a href="https://us.ecoflow.com/search?q=smart%20home%20*&type=product,article,page"> transfer switches</a> </span> including the technical assistance with installation of <span><a href="https://us.ecoflow.com/collections/whole-home-backup-power-solutions"> whole home back up solutions</a> </span>. Currently seeking internships to further augment my
+            skill set, I am enthusiastic about leveraging my technical acumen and problem-solving capabilities to make
+            meaningful contributions within a professional setting.</p>
+          <div class="tab-titles">
+            <p class="tab-links active-links" onclick="opentab('Skills')">Skills</p>
+            <p class="tab-links" onclick="opentab('Experience')">Experience</p>
+            <p class="tab-links" onclick="opentab('Education')">Education</p>
+          </div>
+          <div class="tab-contents active-tab" id="Skills">
+            <ul>
+              <li><span>Programming Languages</span><br>Java, C, C++, Python </li>
+              <li><span>Relational Databases</span><br>PL/SQL with Oracle & MySQL</li>
+              <li><span>web Development</span><br> HTML, CSS & JavaScript </li>
+              <li><span>Matlab</span><br>Data analysis, Mathematical Modeling & algorithm development </li>
+              <li><span>SAP Business Warehouse</span><br> Managing warehouse data, proficient with CRUD approach </li>
+              <li><span>PKMS</span><br> Proficient in PKMS precise inventry management </li>
+              <li><span>Salesforce, ZENDESK, CRM </span><br> Skilled to streamline the cx interactions, track records & facilite effective communication accross B2B & B2C </li>
+              <li><span>CyberSource</span><br> Proficient in ebc_CyberSource for secure payment processing & fraud Management, ensuring seamless & trustworthy transactions</li>
+              <li><span>Commerce Cloud</span><br> Skilled in Commerce Cloud with optimal productivity of e-com support </li>
+            </ul>
+          </div>
+          <div class="tab-contents" id="Experience">
+            <ul>
+              <li><span>10/2023 – CURRENT | Debrecen Hungary</span><br>TECHNICAL SUPPORT ANALYST TRANSCOSMOS (ECOFLOW) </li>
+              <li><span>03/2023 - 09/2023 | Debrecen Hungary</span><br> BRANCH MANAGER KOHINOOR BAZAR DEBRECEN </li>
+              <li><span>06/09/2022 – 30/09/2023 | Debrecen Hungary</span><br> CUSTOMER SERVICE REPRESENTATIVE TRANSCOSMOS (FOSSILS)</li>
+            </ul>
+          </div>
+          <div class="tab-contents" id="Education">
+            <ul>
+              <li><span>08/2020 – CURRENT Debrecen, Hungary </span><br>BSC COMPUTER SCIENCE University of Debrecen</li>
+              <li><span>2016 – 2018 Layyah, Pakistan</span><br> FSC Govt. Post Graduate College Kotsultan</li>
+              <li><span>2014 – 2016 Layyah, Pakistan</span><br> MATRIC Shaheen Ideal Public High school </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- ----------------------Services----------------- -->
+  <div id="services">
+    <div class="container">
+      <h1 class="sub-title">My Services</h1>
+      <div class="services-list">
+        <div>
+          <i class="fa-solid fa-code"></i>
+          <h2> Web Designing</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adiipiscing elit. Sed nulla nibh,
+            tincidunt sit amet sapien quis.</p>            
+          <a href="#">learn more</a>
+        </div>
+        <div>
+          <i class="fa-solid fa-crop"></i>
+          <h2> UI/UX Design</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adiipiscing elit. Sed nulla nibh,
+            tincidunt sit amet sapien quis.</p>
+            <a href="#">learn more</a>
+        </div>
+        <div>
+          <i class="fa-brands fa-app-store-ios"></i>
+          <h2>App Desing </h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adiipiscing elit. Sed nulla nibh,
+            tincidunt sit amet sapien quis.</p>
+            <a href="#">learn more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ----------------------Portfolio----------------- -->
+  <div id="Portfolio">
+    <div class="container">
+      <h1 class="sub-title"> My Work</h1>
+      <div class="work-list">
+        <div class="work">
+          <img src="images/work-1.png"> 
+          <div class="layer">
+            <h3> Social Media App</h3>
+            <p>This is just a demo app that allows you to interact with different people online</p>
+            <a href="#"><i class="fa-solid fa-link"></i></a>
+          </div>
+        </div>
+        <div class="work">
+          <img src="images/work-2.png">
+          <div class="layer">
+            <h3>Music App</h3>
+            <p>This is just a demo app to listen to all of your music files from local directory and online sources</p>
+            <a href="#"><i class="fa-solid fa-link"></i></a>
+          </div>
+        </div>
+        <div class="work">
+          <img src="images/work-3.png">
+          <div class="layer">
+            <h3> Online Shopping App</h3>
+            <p>This is just a demo app that allows you to purchase online clothes and everything</p>
+            <a href="#"><i class="fa-solid fa-link"></i></a>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="btn">See more</a>
+    </div>
+  </div>
+  <!-- ----------------------Contact----------------- -->
+  <div id="Contact">
+    <div class="container">
+      <div class="row">
+        <div class="contact-left">
+          <h1 class="sub-title">Contact Me</h1>
+          <p><a href="mailto: malikjunaidk00@gamil.com"><i  class=" fa-regular fa-paper-plane"></i></a><a href="mailto: malikjunaidk00@gamil.com"> malikjunaidk00@gmail.com</a></p>
+          <p><a href="tel:+36204341861"><i class=" fa-solid fa-square-phone-flip"></i> +36204341861 </a></p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/malikjunaidk00"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/in/malikjunaidk00/"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/malikjunaidk00"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/malikjunaidk00/"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+          <div>
+            <a href="images/Muhammad Junaid Khalil _CV.pdf" download class="btn btn2">Download CV</a>
+          </div>
+        </div>
+        <div class="contact-right">
+          <form name="submit-to-google-sheet">
+            <input type="text" name="Name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+            <button type="submit" class="btn btn2">Submit</button>
+          </form>
+          <span id="msg"></span>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright:<i class="fa-regular fa-copyright"></i> Muhammad Junaid. <i class="fa-regular fa-heart"></i> your feedbacks and responses </p>
+    </div>
+  </div>
+
+
+  <!-- ----------------------JavaScript----------------- -->
+  <script>
+    var tablinks = document.getElementsByClassName('tab-links')
+    var tabcontents = document.getElementsByClassName('tab-contents')
+    function opentab(tabname){
+      for(tablink of tablinks){
+        tablink.classList.remove("active-links");
+      }
+      for(tabcontent of tabcontents){
+        tabcontent.classList.remove('active-tab');
+      }
+      event.currentTarget.classList.add('active-links');
+      document.getElementById(tabname).classList.add('active-tab');
+    }
+  </script>
+
+  <script>
+
+    var sidemanu = document.getElementById("sidemanu");
+
+    function openmanu(){
+      sidemanu.style.right = "0";
+    }
+    function closemanu(){
+      sidemanu.style.right = "-200px";
+    }
+  </script>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzm7-whpdWt9EF08uGuCyNSj5GJmC5Pbde2PExCWb2dkDhzCHY1mhLraR5xGb-tA7tSKQ/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg  = document.getElementById("msg")
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        msg.innerHTML = "Your feedback has been submitted successfully. Thank you for your feedback."
+        setTimeout(function(){
+          msg.innerHTML = ""
+        }, 5000);
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+</body>
+</html>

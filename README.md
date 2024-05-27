@@ -1,5 +1,5 @@
 # Portfolio
-
+ 
 Welcome to my personal portfolio repository! This project showcases my work as a Computer Scientist and provides an overview of my skills, projects, and contact information.
 
 ## Table of Contents

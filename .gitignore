@@ -1,0 +1,13 @@
+node_modules
+dist
+.npm-cache
+.DS_Store
+*.local
+.vs
+.portfolio-git
+screenshots
+public/assets/cover-photo.png
+public/assets/hero-workspace.png
+public/assets/portrait-junaid.png
+public/assets/portrait-junaid.jpg
+public/assets/portrait-junaid-tiny.jpg

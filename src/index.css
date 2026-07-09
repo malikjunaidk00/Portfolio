@@ -1,0 +1,337 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-width: 320px;
+    @apply bg-[#06110f] font-sans text-ink antialiased dark:bg-[#06110f] dark:text-stone-50;
+  }
+
+  section {
+    scroll-margin-top: 5.5rem;
+  }
+
+  ::selection {
+    @apply bg-tealpro text-white;
+  }
+}
+
+@layer components {
+  .content-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-pad {
+    @apply py-16 sm:py-20;
+  }
+
+  .section-surface {
+    background: rgba(247, 249, 246, 0.92);
+    backdrop-filter: blur(12px);
+  }
+
+  .dark .section-surface {
+    background: rgba(7, 18, 15, 0.86);
+  }
+
+  .section-surface-alt {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+  }
+
+  .dark .section-surface-alt {
+    background: rgba(10, 23, 19, 0.82);
+  }
+
+  .panel {
+    @apply rounded-lg border border-ink/10 bg-white/90 shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/[0.06];
+  }
+
+  .quiet-panel {
+    @apply rounded-lg border border-ink/10 bg-white/70 backdrop-blur dark:border-white/10 dark:bg-white/[0.04];
+  }
+
+  .badge {
+    @apply inline-flex min-h-8 items-center rounded-lg border border-ink/10 bg-white px-3 py-1 text-sm font-medium text-ink/80 dark:border-white/10 dark:bg-white/10 dark:text-stone-100;
+  }
+
+  .focus-ring {
+    @apply outline-none ring-offset-2 ring-offset-white focus-visible:ring-2 focus-visible:ring-tealpro dark:ring-offset-[#07120f];
+  }
+
+  .button-base {
+    @apply focus-ring inline-flex h-11 items-center justify-center gap-2 rounded-lg px-4 text-sm font-semibold transition;
+  }
+
+  .button-primary {
+    @apply button-base bg-tealpro text-white shadow-glow hover:bg-teal-700;
+  }
+
+  .button-secondary {
+    @apply button-base border border-ink/20 bg-white/90 text-ink hover:border-tealpro hover:text-tealpro dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:border-teal-300 dark:hover:text-teal-200;
+  }
+
+  .input-field {
+    @apply focus-ring min-h-11 w-full rounded-lg border border-ink/10 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink/50 dark:border-white/10 dark:bg-white/10 dark:text-white dark:placeholder:text-white/50;
+  }
+}
+
+@layer utilities {
+  .site-animated-background {
+    contain: paint;
+  }
+
+  .hero-aurora {
+    position: absolute;
+    inset: -20%;
+    background:
+      radial-gradient(circle at 15% 24%, rgba(20, 184, 166, 0.38), transparent 28%),
+      radial-gradient(circle at 78% 18%, rgba(59, 130, 246, 0.34), transparent 28%),
+      radial-gradient(circle at 64% 84%, rgba(217, 119, 6, 0.22), transparent 26%);
+    filter: blur(34px);
+    opacity: 0.72;
+    will-change: transform;
+    animation: hero-aurora-shift 18s ease-in-out infinite alternate;
+  }
+
+  .hero-grid-layer {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(45, 212, 191, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(45, 212, 191, 0.08) 1px, transparent 1px);
+    background-size: 54px 54px;
+    mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.42), transparent);
+    opacity: 0.58;
+    transform: perspective(900px) rotateX(58deg) translateY(-18%);
+    transform-origin: top;
+    will-change: background-position;
+    animation: hero-grid-pan 20s linear infinite;
+  }
+
+  .hero-network {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.62;
+  }
+
+  .hero-path {
+    fill: none;
+    stroke: url("#heroLineGradient");
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 9 22;
+    will-change: stroke-dashoffset;
+  }
+
+  .hero-path-slow {
+    animation: hero-line-dash 15s linear infinite;
+  }
+
+  .hero-path-mid {
+    animation: hero-line-dash 11s linear infinite reverse;
+  }
+
+  .hero-path-fast {
+    animation: hero-line-dash 8s linear infinite;
+  }
+
+  .hero-node {
+    fill: url("#heroNodeGradient");
+    opacity: 0.82;
+    will-change: transform, opacity;
+    animation: hero-node-pulse 3.6s ease-in-out infinite;
+  }
+
+  .hero-particle {
+    position: absolute;
+    left: var(--particle-left);
+    top: var(--particle-top);
+    width: var(--particle-size);
+    height: var(--particle-size);
+    border-radius: 999px;
+    background: rgba(94, 234, 212, 0.78);
+    box-shadow: 0 0 24px rgba(45, 212, 191, 0.86);
+    opacity: 0.72;
+    will-change: transform, opacity;
+    animation: hero-particle-float var(--particle-duration) ease-in-out var(--particle-delay) infinite;
+  }
+
+  .hero-code-chip {
+    position: absolute;
+    top: var(--chip-top);
+    left: var(--chip-left);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    background: rgba(6, 17, 15, 0.62);
+    color: rgba(204, 251, 241, 0.9);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    padding: 0.5rem 0.7rem;
+    box-shadow: 0 14px 44px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(14px);
+    will-change: transform, opacity;
+    animation: hero-code-drift 9s ease-in-out var(--chip-delay) infinite;
+  }
+
+  .hero-scan-beam {
+    position: absolute;
+    width: 42%;
+    height: 130%;
+    top: -15%;
+    border-left: 1px solid rgba(94, 234, 212, 0.22);
+    border-right: 1px solid rgba(96, 165, 250, 0.14);
+    background: linear-gradient(90deg, transparent, rgba(45, 212, 191, 0.1), transparent);
+    transform: skewX(-22deg);
+    opacity: 0.62;
+    will-change: transform;
+  }
+
+  .hero-scan-beam-a {
+    left: -38%;
+    animation: hero-beam-sweep 14s ease-in-out infinite;
+  }
+
+  .hero-scan-beam-b {
+    left: 18%;
+    animation: hero-beam-sweep 18s ease-in-out 4s infinite reverse;
+  }
+
+  .hero-orbit {
+    position: absolute;
+    border: 1px solid rgba(94, 234, 212, 0.18);
+    border-radius: 999px;
+    box-shadow: inset 0 0 28px rgba(45, 212, 191, 0.05), 0 0 42px rgba(45, 212, 191, 0.08);
+    will-change: transform;
+  }
+
+  .hero-orbit-a {
+    right: 8%;
+    top: 18%;
+    width: 340px;
+    height: 340px;
+    animation: hero-orbit-turn 24s linear infinite;
+  }
+
+  .hero-orbit-b {
+    right: 20%;
+    bottom: 8%;
+    width: 220px;
+    height: 220px;
+    border-color: rgba(251, 191, 36, 0.16);
+    animation: hero-orbit-turn 19s linear infinite reverse;
+  }
+
+  @keyframes hero-aurora-shift {
+    0% {
+      transform: translate3d(-2%, -1%, 0) scale(1);
+    }
+    100% {
+      transform: translate3d(3%, 2%, 0) scale(1.08);
+    }
+  }
+
+  @keyframes hero-grid-pan {
+    0% {
+      background-position: 0 0, 0 0;
+    }
+    100% {
+      background-position: 108px 108px, 108px 108px;
+    }
+  }
+
+  @keyframes hero-line-dash {
+    to {
+      stroke-dashoffset: -260;
+    }
+  }
+
+  @keyframes hero-node-pulse {
+    0%, 100% {
+      opacity: 0.45;
+      transform: scale(0.92);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.18);
+    }
+  }
+
+  @keyframes hero-particle-float {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+      transform: translate3d(18px, -28px, 0) scale(1.35);
+    }
+  }
+
+  @keyframes hero-code-drift {
+    0%, 100% {
+      opacity: 0.4;
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      opacity: 0.95;
+      transform: translate3d(10px, -16px, 0);
+    }
+  }
+
+  @keyframes hero-beam-sweep {
+    0% {
+      transform: translateX(0) skewX(-22deg);
+    }
+    52%, 100% {
+      transform: translateX(260%) skewX(-22deg);
+    }
+  }
+
+  @keyframes hero-orbit-turn {
+    from {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(180deg) scale(1.08);
+    }
+    to {
+      transform: rotate(360deg) scale(1);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-code-chip,
+    .hero-orbit-b {
+      display: none;
+    }
+
+    .hero-grid-layer {
+      opacity: 0.42;
+      background-size: 42px 42px;
+    }
+
+    .hero-network {
+      opacity: 0.42;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-aurora,
+    .hero-grid-layer,
+    .hero-path,
+    .hero-node,
+    .hero-particle,
+    .hero-code-chip,
+    .hero-scan-beam,
+    .hero-orbit {
+      animation: none;
+    }
+  }
+}

@@ -38,6 +38,413 @@
       content="https://avatars.githubusercontent.com/u/79202697?v=4"
     />
 
+    <style>
+      :root {
+        color-scheme: dark;
+        --fallback-bg: #06110f;
+        --fallback-panel: rgba(255, 255, 255, 0.08);
+        --fallback-line: rgba(255, 255, 255, 0.16);
+        --fallback-text: #f8fafc;
+        --fallback-muted: #cbd5e1;
+        --fallback-teal: #2dd4bf;
+        --fallback-amber: #f59e0b;
+        --fallback-ink: #07120f;
+      }
+
+      body {
+        margin: 0;
+        background: var(--fallback-bg);
+      }
+
+      .fallback-portfolio {
+        min-height: 100vh;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 78% 22%, rgba(45, 212, 191, 0.18), transparent 34%),
+          radial-gradient(circle at 18% 80%, rgba(245, 158, 11, 0.14), transparent 32%),
+          linear-gradient(135deg, #06110f 0%, #07120f 54%, #0f172a 100%);
+        color: var(--fallback-text);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .fallback-portfolio * {
+        box-sizing: border-box;
+      }
+
+      .fallback-bg {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0.82;
+      }
+
+      .fallback-shell {
+        position: relative;
+        z-index: 1;
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .fallback-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 20px 0;
+      }
+
+      .fallback-brand {
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .fallback-nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-end;
+      }
+
+      .fallback-nav-links a,
+      .fallback-button,
+      .fallback-button-secondary {
+        min-height: 42px;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 0 14px;
+        color: var(--fallback-text);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .fallback-nav-links a,
+      .fallback-button-secondary {
+        border: 1px solid var(--fallback-line);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .fallback-button {
+        border: 1px solid rgba(45, 212, 191, 0.75);
+        background: var(--fallback-teal);
+        color: #042f2e;
+      }
+
+      .fallback-hero {
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 44px;
+        align-items: center;
+        padding: 56px 0 42px;
+      }
+
+      .fallback-kicker,
+      .fallback-pill,
+      .fallback-tag {
+        border: 1px solid var(--fallback-line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.09);
+        color: #ccfbf1;
+      }
+
+      .fallback-kicker {
+        display: inline-flex;
+        padding: 8px 12px;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .fallback-hero h1 {
+        margin: 22px 0 0;
+        max-width: 820px;
+        font-size: clamp(42px, 8vw, 82px);
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+
+      .fallback-hero h1 span {
+        color: var(--fallback-teal);
+      }
+
+      .fallback-title {
+        margin: 20px 0 0;
+        max-width: 760px;
+        color: #ccfbf1;
+        font-size: clamp(18px, 2.6vw, 24px);
+        font-weight: 800;
+        line-height: 1.45;
+      }
+
+      .fallback-copy {
+        margin: 18px 0 0;
+        max-width: 740px;
+        color: var(--fallback-muted);
+        font-size: 17px;
+        line-height: 1.75;
+      }
+
+      .fallback-actions,
+      .fallback-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .fallback-actions {
+        margin-top: 28px;
+      }
+
+      .fallback-tags {
+        margin-top: 26px;
+      }
+
+      .fallback-tag {
+        padding: 9px 12px;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .fallback-card {
+        border: 1px solid var(--fallback-line);
+        border-radius: 8px;
+        background: rgba(7, 18, 15, 0.72);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+        backdrop-filter: blur(16px);
+      }
+
+      .fallback-profile {
+        padding: 22px;
+      }
+
+      .fallback-profile-head {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .fallback-avatar {
+        width: 88px;
+        height: 88px;
+        border-radius: 8px;
+        border: 1px solid var(--fallback-line);
+        background:
+          linear-gradient(135deg, rgba(45, 212, 191, 0.24), rgba(245, 158, 11, 0.16)),
+          #0f172a;
+      }
+
+      .fallback-profile h2,
+      .fallback-section h2,
+      .fallback-project h3 {
+        margin: 0;
+        letter-spacing: 0;
+      }
+
+      .fallback-profile p,
+      .fallback-project p,
+      .fallback-section p,
+      .fallback-list {
+        color: var(--fallback-muted);
+      }
+
+      .fallback-profile-grid {
+        display: grid;
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .fallback-signal {
+        border: 1px solid rgba(45, 212, 191, 0.18);
+        border-radius: 8px;
+        background: rgba(45, 212, 191, 0.09);
+        padding: 13px;
+        color: #d1fae5;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .fallback-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        padding-bottom: 54px;
+      }
+
+      .fallback-stat {
+        border: 1px solid var(--fallback-line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 18px;
+      }
+
+      .fallback-stat strong {
+        display: block;
+        color: var(--fallback-text);
+        font-size: 30px;
+      }
+
+      .fallback-stat span {
+        display: block;
+        margin-top: 6px;
+        color: var(--fallback-muted);
+        font-size: 14px;
+      }
+
+      .fallback-section {
+        padding: 62px 0;
+      }
+
+      .fallback-section-header {
+        max-width: 760px;
+        margin-bottom: 26px;
+      }
+
+      .fallback-eyebrow {
+        margin: 0 0 10px;
+        color: var(--fallback-teal);
+        font-size: 13px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .fallback-section h2 {
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.12;
+      }
+
+      .fallback-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .fallback-panel,
+      .fallback-project {
+        border: 1px solid rgba(15, 23, 42, 0.1);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.94);
+        color: #0f172a;
+        padding: 20px;
+      }
+
+      .fallback-panel p,
+      .fallback-project p,
+      .fallback-list {
+        color: #475569;
+      }
+
+      .fallback-project {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+      }
+
+      .fallback-badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0 0 16px;
+      }
+
+      .fallback-pill {
+        padding: 6px 9px;
+        color: #0f766e;
+        background: rgba(20, 184, 166, 0.12);
+        border-color: rgba(20, 184, 166, 0.18);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .fallback-pill.amber {
+        color: #92400e;
+        background: rgba(245, 158, 11, 0.15);
+        border-color: rgba(245, 158, 11, 0.18);
+      }
+
+      .fallback-list {
+        margin: 16px 0 0;
+        padding-left: 18px;
+        line-height: 1.7;
+      }
+
+      .fallback-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .fallback-skill {
+        border-radius: 8px;
+        background: rgba(15, 23, 42, 0.08);
+        padding: 8px 10px;
+        color: #334155;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .fallback-contact {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        align-items: stretch;
+      }
+
+      .fallback-footer {
+        padding: 34px 0 48px;
+        color: var(--fallback-muted);
+        font-size: 14px;
+      }
+
+      @media (max-width: 900px) {
+        .fallback-nav {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .fallback-nav-links {
+          justify-content: flex-start;
+        }
+
+        .fallback-hero,
+        .fallback-contact {
+          grid-template-columns: 1fr;
+        }
+
+        .fallback-stats,
+        .fallback-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 620px) {
+        .fallback-shell {
+          width: min(100% - 24px, 1120px);
+        }
+
+        .fallback-nav-links a,
+        .fallback-button,
+        .fallback-button-secondary {
+          width: 100%;
+        }
+
+        .fallback-hero {
+          padding-top: 34px;
+        }
+
+        .fallback-stats,
+        .fallback-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .fallback-section {
+          padding: 46px 0;
+        }
+      }
+    </style>
+
     <script>
       const savedTheme = localStorage.getItem("theme");
       const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -48,7 +455,277 @@
     <title>Muhammad Junaid Khalil | Developer Portfolio</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="fallback-portfolio">
+        <canvas class="fallback-bg" id="fallback-bg" aria-hidden="true"></canvas>
+
+        <header class="fallback-shell fallback-nav">
+          <a class="fallback-brand" href="#home">Muhammad Junaid Khalil</a>
+          <nav class="fallback-nav-links" aria-label="Portfolio navigation">
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </header>
+
+        <main>
+          <section class="fallback-shell fallback-hero" id="home">
+            <div>
+              <span class="fallback-kicker">Graduate software engineer in Debrecen, Hungary</span>
+              <h1>Muhammad Junaid <span>Khalil</span></h1>
+              <p class="fallback-title">Junior Java Backend Developer | AI Automation Builder | BSc Computer Science Graduate</p>
+              <p class="fallback-copy">
+                BSc Computer Science graduate combining Java backend fundamentals, AI automation projects,
+                GIS plugin development, and real customer-facing technical support experience.
+              </p>
+              <div class="fallback-actions">
+                <a
+                  class="fallback-button"
+                  href="data:application/pdf;base64,JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFszIDAgUl0gL0NvdW50IDEgPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA2MTIgNzkyXSAvQ29udGVudHMgNCAwIFIgL1Jlc291cmNlcyA8PCAvRm9udCA8PCAvRjEgNSAwIFIgPj4gPj4gPj4KZW5kb2JqCjQgMCBvYmoKPDwgL0xlbmd0aCAyMTEgPj4Kc3RyZWFtCkJUCi9GMSAyNCBUZgo3MiA3MjAgVGQKKE11aGFtbWFkIEp1bmFpZCBLaGFsaWwpIFRqCjAgLTM0IFRkCi9GMSAxMiBUZgooUmVzdW1lIHBsYWNlaG9sZGVyIC0gcmVwbGFjZSBwdWJsaWMvcmVzdW1lLnBkZiB3aXRoIHRoZSBmaW5hbCByZXN1bWUgZmlsZS4pIFRqCjAgLTIwIFRkCihtYWxpa2p1bmFpZGswMEBnbWFpbC5jb20gfCBEZWJyZWNlbiwgSHVuZ2FyeSkgVGoKRVQKZW5kc3RyZWFtCmVuZG9iago1IDAgb2JqCjw8IC9UeXBlIC9Gb250IC9TdWJ0eXBlIC9UeXBlMSAvQmFzZUZvbnQgL0hlbHZldGljYSA+PgplbmRvYmoKeHJlZgowIDYKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAwNTggMDAwMDAgbiAKMDAwMDAwMDExNSAwMDAwMCBuIAowMDAwMDAwMjQxIDAwMDAwIG4gCjAwMDAwMDA1MDMgMDAwMDAgbiAKdHJhaWxlcgo8PCAvU2l6ZSA2IC9Sb290IDEgMCBSID4+CnN0YXJ0eHJlZgo1NzMKJSVFT0YK"
+                  download="Muhammad-Junaid-Khalil-Resume.pdf"
+                >
+                  Download Resume
+                </a>
+                <a class="fallback-button-secondary" href="https://github.com/malikjunaidk00" target="_blank" rel="noreferrer">View GitHub</a>
+                <a class="fallback-button-secondary" href="#projects">View Projects</a>
+              </div>
+              <div class="fallback-tags" aria-label="Target roles">
+                <span class="fallback-tag">Java Backend</span>
+                <span class="fallback-tag">AI Automation</span>
+                <span class="fallback-tag">Technical Support</span>
+                <span class="fallback-tag">GIS / Data Tools</span>
+              </div>
+            </div>
+
+            <aside class="fallback-card fallback-profile" aria-label="Recruiter snapshot">
+              <div class="fallback-profile-head">
+                <div class="fallback-avatar" aria-hidden="true"></div>
+                <div>
+                  <p class="fallback-eyebrow">Recruiter Snapshot</p>
+                  <h2>BSc Computer Science</h2>
+                  <p>University of Debrecen, June 2026</p>
+                </div>
+              </div>
+              <div class="fallback-profile-grid">
+                <div class="fallback-signal">Java, Spring Boot, REST APIs, SQL, OOP, and backend fundamentals.</div>
+                <div class="fallback-signal">AI job search, resume tailoring, prompt design, and workflow automation projects.</div>
+                <div class="fallback-signal">Level 2 troubleshooting experience with clear technical communication.</div>
+                <div class="fallback-signal">Python, QGIS, and PyQGIS thesis work for spatial data refinement.</div>
+              </div>
+            </aside>
+          </section>
+
+          <section class="fallback-shell fallback-stats" aria-label="Portfolio stats">
+            <div class="fallback-stat"><strong>16</strong><span>Project concepts</span></div>
+            <div class="fallback-stat"><strong>3+</strong><span>Years support experience</span></div>
+            <div class="fallback-stat"><strong>4</strong><span>Core focus areas</span></div>
+            <div class="fallback-stat"><strong>2026</strong><span>BSc graduation</span></div>
+          </section>
+
+          <section class="fallback-section" id="skills">
+            <div class="fallback-shell">
+              <div class="fallback-section-header">
+                <p class="fallback-eyebrow">Skills</p>
+                <h2>Skills grouped for junior developer and technical support roles.</h2>
+                <p>Strongest signal: Java backend plus Python, SQL, React, AI automation, GIS tooling, and support systems experience.</p>
+              </div>
+              <div class="fallback-grid">
+                <article class="fallback-panel">
+                  <h3>Backend</h3>
+                  <div class="fallback-skills">
+                    <span class="fallback-skill">Java</span><span class="fallback-skill">Spring Boot</span><span class="fallback-skill">REST APIs</span><span class="fallback-skill">SQL</span><span class="fallback-skill">JWT</span>
+                  </div>
+                </article>
+                <article class="fallback-panel">
+                  <h3>AI / Automation</h3>
+                  <div class="fallback-skills">
+                    <span class="fallback-skill">OpenAI API</span><span class="fallback-skill">Prompt Engineering</span><span class="fallback-skill">n8n</span><span class="fallback-skill">Resume Tailoring</span>
+                  </div>
+                </article>
+                <article class="fallback-panel">
+                  <h3>Tools and Data</h3>
+                  <div class="fallback-skills">
+                    <span class="fallback-skill">React</span><span class="fallback-skill">GitHub</span><span class="fallback-skill">Docker</span><span class="fallback-skill">QGIS</span><span class="fallback-skill">Postman</span>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="fallback-section" id="experience">
+            <div class="fallback-shell">
+              <div class="fallback-section-header">
+                <p class="fallback-eyebrow">Experience</p>
+                <h2>Support experience that translates into engineering habits.</h2>
+              </div>
+              <div class="fallback-grid">
+                <article class="fallback-panel">
+                  <h3>Technical Support Analyst</h3>
+                  <p><strong>EcoFlow / Transcosmos</strong> | Nov 2023 - Present</p>
+                  <ul class="fallback-list">
+                    <li>Level 2 troubleshooting for connected hardware and smart energy systems.</li>
+                    <li>Documents firmware, connectivity, battery, application, and product issues.</li>
+                  </ul>
+                </article>
+                <article class="fallback-panel">
+                  <h3>Customer Support Representative</h3>
+                  <p><strong>Fossil Group / Transcosmos</strong> | Jun 2022 - Sep 2023</p>
+                  <ul class="fallback-list">
+                    <li>Handled international e-commerce, warranty, repair, and payment workflows.</li>
+                    <li>Used Salesforce, SAP, Commerce Cloud, CyberSource, and CRM tools.</li>
+                  </ul>
+                </article>
+                <article class="fallback-panel">
+                  <h3>QGIS Thesis Project</h3>
+                  <p><strong>University of Debrecen</strong> | BSc Computer Science</p>
+                  <ul class="fallback-list">
+                    <li>Built a Python and PyQGIS plugin for spatial data cleaning.</li>
+                    <li>Focused on null detection, value replacement, and dataset refinement.</li>
+                  </ul>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="fallback-section" id="projects">
+            <div class="fallback-shell">
+              <div class="fallback-section-header">
+                <p class="fallback-eyebrow">Featured Projects</p>
+                <h2>Projects presented as recruiter-friendly evidence.</h2>
+                <p>Priority projects connect directly to Java backend, AI automation, technical support tooling, and GIS/data roles.</p>
+              </div>
+              <div class="fallback-grid">
+                <article class="fallback-project">
+                  <div class="fallback-badge-row"><span class="fallback-pill">AI</span><span class="fallback-pill amber">Priority</span></div>
+                  <h3>AI Job Tracker</h3>
+                  <p>A full-stack job application workspace for importing jobs, calculating AI match scores, finding missing skills, and generating tailored resume drafts.</p>
+                  <ul class="fallback-list">
+                    <li>Java, Spring Boot, React, PostgreSQL, OpenAI API</li>
+                    <li>Strong alignment with backend, AI automation, and recruiter workflow problems.</li>
+                  </ul>
+                </article>
+                <article class="fallback-project">
+                  <div class="fallback-badge-row"><span class="fallback-pill">GIS</span><span class="fallback-pill amber">Thesis</span></div>
+                  <h3>QGIS Data Refinement Plugin</h3>
+                  <p>A Python-based plugin for detecting, cleaning, and modifying null, numeric, date, and string values in geospatial datasets.</p>
+                  <ul class="fallback-list">
+                    <li>Python, QGIS, PyQGIS, Qt Designer</li>
+                    <li>Evidence of domain-specific tooling and data-quality thinking.</li>
+                  </ul>
+                </article>
+                <article class="fallback-project">
+                  <div class="fallback-badge-row"><span class="fallback-pill">Backend</span><span class="fallback-pill amber">API</span></div>
+                  <h3>Expense Tracker API</h3>
+                  <p>A secure REST API concept for income, expenses, budgets, monthly reporting, category analytics, and authentication.</p>
+                  <ul class="fallback-list">
+                    <li>Java, Spring Boot, PostgreSQL, JWT, Docker, Swagger</li>
+                    <li>Shows API design, database-backed structure, and reporting workflows.</li>
+                  </ul>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="fallback-section" id="contact">
+            <div class="fallback-shell fallback-contact">
+              <div class="fallback-section-header">
+                <p class="fallback-eyebrow">Contact</p>
+                <h2>Open to junior software, AI automation, and technical support engineering roles.</h2>
+                <p>Based in Debrecen, Hungary. Available for graduate software engineering, junior backend, full-stack trainee, AI automation, GIS/data, and IT support positions.</p>
+              </div>
+              <div class="fallback-card fallback-profile">
+                <p><strong>Email:</strong> <a class="fallback-button-secondary" href="mailto:malikjunaidk00@gmail.com">malikjunaidk00@gmail.com</a></p>
+                <p><strong>Phone:</strong> +36 70 312 7561</p>
+                <p><strong>GitHub:</strong> <a class="fallback-button-secondary" href="https://github.com/malikjunaidk00" target="_blank" rel="noreferrer">github.com/malikjunaidk00</a></p>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <footer class="fallback-shell fallback-footer">
+          Muhammad Junaid Khalil | Portfolio fallback is active while GitHub Pages serves the repository root.
+        </footer>
+      </div>
+    </div>
+    <script>
+      (() => {
+        const canvas = document.getElementById("fallback-bg");
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        let width = 0;
+        let height = 0;
+        let particles = [];
+
+        function resize() {
+          const ratio = Math.min(window.devicePixelRatio || 1, 2);
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = Math.floor(width * ratio);
+          canvas.height = Math.floor(height * ratio);
+          canvas.style.width = `${width}px`;
+          canvas.style.height = `${height}px`;
+          ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+          particles = Array.from({ length: Math.min(78, Math.floor(width / 18)) }, (_, index) => ({
+            x: (index * 139) % width,
+            y: (index * 89) % height,
+            vx: ((index % 5) - 2) * 0.16,
+            vy: ((index % 7) - 3) * 0.12,
+            r: 1.4 + (index % 4) * 0.7,
+          }));
+        }
+
+        function draw() {
+          ctx.clearRect(0, 0, width, height);
+          const gradient = ctx.createLinearGradient(0, 0, width, height);
+          gradient.addColorStop(0, "rgba(45, 212, 191, 0.16)");
+          gradient.addColorStop(0.52, "rgba(96, 165, 250, 0.12)");
+          gradient.addColorStop(1, "rgba(245, 158, 11, 0.10)");
+          ctx.strokeStyle = gradient;
+          ctx.lineWidth = 1;
+
+          for (let i = 0; i < particles.length; i += 1) {
+            const a = particles[i];
+            if (!prefersReducedMotion) {
+              a.x += a.vx;
+              a.y += a.vy;
+              if (a.x < -20) a.x = width + 20;
+              if (a.x > width + 20) a.x = -20;
+              if (a.y < -20) a.y = height + 20;
+              if (a.y > height + 20) a.y = -20;
+            }
+
+            for (let j = i + 1; j < particles.length; j += 1) {
+              const b = particles[j];
+              const dx = a.x - b.x;
+              const dy = a.y - b.y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+              if (distance < 135) {
+                ctx.globalAlpha = (135 - distance) / 270;
+                ctx.beginPath();
+                ctx.moveTo(a.x, a.y);
+                ctx.lineTo(b.x, b.y);
+                ctx.stroke();
+              }
+            }
+
+            ctx.globalAlpha = 0.76;
+            ctx.fillStyle = i % 9 === 0 ? "#f59e0b" : "#2dd4bf";
+            ctx.beginPath();
+            ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          ctx.globalAlpha = 1;
+          if (!prefersReducedMotion) window.requestAnimationFrame(draw);
+        }
+
+        window.addEventListener("resize", resize, { passive: true });
+        resize();
+        draw();
+      })();
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
